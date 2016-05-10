@@ -12,7 +12,7 @@
         android:text="Login"
         android:id="@+id/loginHeaderTextView"
         android:textStyle="bold"
-        android:textSize="30sp"
+        android:textSize="50sp"
         android:textColor="@color/colorAccent"
         android:gravity="center"
         android:layout_alignParentLeft="true"
