@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Faulty Football League</string>
+    <string-array name="searchChoices">
+        <item>Team</item>
+        <item>Player</item>
+        <item>Crime</item>
+    </string-array>
 </resources>

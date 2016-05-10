@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.epicodus.faultyfootballleague.R;
@@ -16,6 +19,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     @Bind(R.id.headerTextView) TextView mHeaderTextView;
+    @Bind(R.id.searchSpinner) Spinner mSearchSpinner;
 
 
     @Override
@@ -23,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.searchChoices, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mSearchSpinner.setAdapter(adapter);
 
         Typeface face = Typeface.createFromAsset(getAssets(), "Sports Jersey.ttf");
         mHeaderTextView.setTypeface(face);

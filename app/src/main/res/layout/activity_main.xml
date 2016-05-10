@@ -18,7 +18,40 @@
         android:textSize="34sp"
         android:textColor="@color/colorAccent"
         android:textStyle="bold"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="28dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Searching"
+        android:id="@+id/searchButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorTextIcons"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchSpinner"
+        android:layout_above="@+id/searchButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="120dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick a search option"
+        android:id="@+id/searchTextView"
+        android:textSize="24sp"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/searchSpinner"/>
 </RelativeLayout>
