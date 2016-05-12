@@ -3,6 +3,7 @@ package com.epicodus.faultyfootballleague.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.epicodus.faultyfootballleague.R;
+import com.epicodus.faultyfootballleague.adapters.PlayerListAdapter;
+import com.epicodus.faultyfootballleague.models.Player;
 import com.epicodus.faultyfootballleague.services.NFLArrestService;
 
 import org.json.JSONException;
@@ -28,7 +31,8 @@ import okhttp3.Response;
  */
 public class PlayerListFragment extends Fragment {
     private String mSearch;
-    public ArrayList<String> mPlayers = new ArrayList<>();
+    public ArrayList<Player> mPlayers = new ArrayList<>();
+    private PlayerListAdapter mAdapter;
     @Bind(R.id.playerRecyclerView) RecyclerView mRecyclerView;
 
 
@@ -67,17 +71,18 @@ public class PlayerListFragment extends Fragment {
 
             @Override
             public void onResponse(Call call, Response response) {
-                try{
-                    String jsonData = response.body().string();
-                    Log.v("response: ", jsonData);
+                mPlayers = nflArrestService.processPlayers(response);
 
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-//                catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mAdapter = new PlayerListAdapter(getContext(), mPlayers);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
+                    }
+                });
             }
         });
     }
