@@ -56,7 +56,7 @@ public class PlayerListAdapter extends RecyclerView.Adapter<PlayerListAdapter.Pl
         }
         public void bindPlayer(Player player) {
             mNameTextView.setText(player.getName());
-            mPositionTextView.setText(player.getPosition());
+            mPositionTextView.setText("Position: " + player.getPosition());
             mArrestCountTextView.setText("Arrest Count: " + player.getArrestCount());
         }
 
