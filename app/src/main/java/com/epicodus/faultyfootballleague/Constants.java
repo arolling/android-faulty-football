@@ -16,9 +16,11 @@ public class Constants {
     public static final String NFL_SEARCH_PATH_SEGMENT = "search";
     public static final String NFL_PLAYER_PATH_SEGMENT = "player";
 
+
     public static final String START_DATE_QUERY = "start_date";
     public static final String END_DATE_QUERY = "end_date";
     public static final String LIMIT_QUERY = "limit";
+    public static final String TERM_QUERY = "term";
 
     public static final String FIREBASE_URL = BuildConfig.FIREBASE_ROOT_URL;
 

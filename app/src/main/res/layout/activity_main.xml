@@ -36,12 +36,12 @@
         android:textSize="18sp" />
 
     <Spinner
-        android:layout_width="300dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/searchSpinner"
-        android:layout_above="@+id/searchButton"
+        android:layout_below="@+id/searchTextView"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="120dp" />
+        android:layout_marginTop="32dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
         android:textSize="24sp"
         android:textColor="@color/colorAccent"
         android:textStyle="bold"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/headerTextView"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/searchSpinner"/>
+        android:layout_marginTop="40dp" />
 </RelativeLayout>
